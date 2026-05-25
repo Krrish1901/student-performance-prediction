@@ -5,37 +5,31 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/Krrish1901/student-performance-project.git'
+                git 'https://github.com/Krrish1901/student-performance-prediction.git'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                bat 'pip install -r requirements.txt'
+                sh 'pip install pandas scikit-learn joblib'
             }
         }
 
         stage('Train Model') {
             steps {
-                bat 'python train_model.py'
-            }
-        }
-
-        stage('Run Prediction') {
-            steps {
-                bat 'python predict.py'
+                sh 'python train_model.py'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t student-performance .'
+                sh 'docker build -t student-performance-prediction .'
             }
         }
 
         stage('Run Docker Container') {
             steps {
-                bat 'docker run --name student-container student-performance'
+                sh 'docker run student-performance-prediction'
             }
         }
     }
