@@ -5,7 +5,7 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/your-username/student-performance-project.git'
+                git 'https://github.com/Krrish1901/student-performance-project.git'
             }
         }
 
