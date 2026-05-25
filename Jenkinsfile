@@ -12,7 +12,7 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'pip install pandas scikit-learn joblib'
+                sh 'pip install --break-system-packages pandas scikit-learn joblib'
             }
         }
 
