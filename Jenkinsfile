@@ -5,7 +5,8 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/Krrish1901/student-performance-prediction.git'
+                git branch: 'main',
+                    url: 'https://github.com/Krrish1901/student-performance-prediction.git'
             }
         }
 
