@@ -27,11 +27,5 @@ pipeline {
                 sh 'docker build -t student-performance-prediction .'
             }
         }
-
-        stage('Run Docker Container') {
-            steps {
-                sh 'docker run student-performance-prediction'
-            }
-        }
     }
 }
